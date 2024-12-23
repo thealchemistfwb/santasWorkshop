@@ -1,0 +1,193 @@
+.fact-carousel {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 307px;
+  background: #FFFFFF;
+  border: 1px solid #EDEDED;
+  border-radius: 8px;
+  position: relative;
+  margin-bottom: 24px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 23px;
+  gap: 48px;
+  min-height: 223px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.reindeer-container {
+  position: relative;
+  width: 223px;
+  height: 223px;
+  flex-shrink: 0;
+}
+
+.reindeer-background {
+  position: absolute;
+  width: 206px;
+  height: 206px;
+  left: 17px;
+  top: 8px;
+  background: #63BC56;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.reindeer-image {
+  position: absolute;
+  width: 223px;
+  height: 223px;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.fact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+  max-width: 800px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.fact-container h2 {
+  font-family: 'Hammersmith One', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #333333;
+  margin: 0;
+}
+
+.fact-text {
+  font-family: 'Hammersmith One', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  color: #333333;
+  margin: 0;
+}
+
+.carousel-indicators {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 23px;
+  z-index: 2;
+}
+
+.indicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #63BC56;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #FF3B30;
+  border: none;
+}
+
+/* Raining Presents Animation */
+@keyframes presentRain {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1000%) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.present {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #FF3B30;
+  border-radius: 3px;
+  z-index: 1;
+  opacity: 0;
+}
+
+.present::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+}
+
+.present::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: #fff;
+}
+
+/* Generate multiple presents with different positions and delays */
+.present:nth-child(1) { left: 10%; animation: presentRain 3s linear infinite; animation-delay: 0s; }
+.present:nth-child(2) { left: 20%; animation: presentRain 2.5s linear infinite; animation-delay: 0.5s; }
+.present:nth-child(3) { left: 30%; animation: presentRain 3.2s linear infinite; animation-delay: 1s; }
+.present:nth-child(4) { left: 40%; animation: presentRain 2.8s linear infinite; animation-delay: 1.5s; }
+.present:nth-child(5) { left: 50%; animation: presentRain 3s linear infinite; animation-delay: 2s; }
+.present:nth-child(6) { left: 60%; animation: presentRain 2.6s linear infinite; animation-delay: 2.5s; }
+.present:nth-child(7) { left: 70%; animation: presentRain 3.1s linear infinite; animation-delay: 3s; }
+.present:nth-child(8) { left: 80%; animation: presentRain 2.7s linear infinite; animation-delay: 3.5s; }
+.present:nth-child(9) { left: 90%; animation: presentRain 2.9s linear infinite; animation-delay: 4s; }
+
+/* Responsive styles */
+@media (max-width: 950px) {
+  .fact-carousel {
+    height: auto;
+    min-height: 400px;
+  }
+
+  .carousel-content {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .fact-container {
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .fact-text {
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+  }
+} 
